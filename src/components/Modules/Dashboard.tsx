@@ -143,10 +143,10 @@ export const Dashboard: React.FC<{ onNavigate: (module: string) => void }> = ({ 
       </div>
 
       {/* Dashboard Bento Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
         
         {/* Card 1: AI Insights - 2x1 */}
-        <div className="col-span-1 md:col-span-2 bg-white dark:bg-slate-900/60 backdrop-blur-md p-6 rounded-2xl border border-slate-200/80 dark:border-slate-800/80 shadow-sm flex flex-col justify-between min-h-[200px]">
+        <div className="col-span-1 md:col-span-2 lg:col-span-2 bg-white dark:bg-slate-900/60 backdrop-blur-md p-6 rounded-2xl border border-slate-200/80 dark:border-slate-800/80 shadow-sm flex flex-col justify-between min-h-[200px]">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-purple-500 rounded-full animate-pulse"></div>
@@ -215,7 +215,7 @@ export const Dashboard: React.FC<{ onNavigate: (module: string) => void }> = ({ 
         </div>
 
         {/* Card 2: Revenue Card - 1x1 */}
-        <div className="col-span-1 bg-white dark:bg-slate-900/60 backdrop-blur-md p-6 rounded-2xl border border-slate-200/80 dark:border-slate-800/80 shadow-sm flex flex-col justify-between min-h-[200px]">
+        <div className="col-span-1 md:col-span-1 lg:col-span-1 bg-white dark:bg-slate-900/60 backdrop-blur-md p-6 rounded-2xl border border-slate-200/80 dark:border-slate-800/80 shadow-sm flex flex-col justify-between min-h-[200px]">
           <div>
             <span className="text-[10px] font-bold tracking-widest text-slate-400 uppercase font-mono">Monthly Revenue</span>
             <div className="mt-4">
@@ -237,7 +237,7 @@ export const Dashboard: React.FC<{ onNavigate: (module: string) => void }> = ({ 
         </div>
 
         {/* Card 3: Active Timer - 1x1 */}
-        <div className="col-span-1 bg-slate-950 dark:bg-black p-6 rounded-2xl text-white shadow-lg flex flex-col justify-between min-h-[200px]">
+        <div className="col-span-1 md:col-span-1 lg:col-span-1 bg-slate-950 dark:bg-black p-6 rounded-2xl text-white shadow-lg flex flex-col justify-between min-h-[200px]">
           <div className="flex justify-between items-start">
             <span className="text-[10px] font-bold tracking-widest text-slate-500 uppercase font-mono">Live Tracker</span>
             <div className="w-2 h-2 bg-rose-500 rounded-full animate-ping"></div>
@@ -294,7 +294,7 @@ export const Dashboard: React.FC<{ onNavigate: (module: string) => void }> = ({ 
         </div>
 
         {/* Card 4: Fiverr Orders Feed - 2x2 */}
-        <div className="col-span-1 md:col-span-2 bg-white dark:bg-slate-900/60 backdrop-blur-md p-6 rounded-2xl border border-slate-200/80 dark:border-slate-800/80 shadow-sm flex flex-col justify-between min-h-[220px]">
+        <div className="col-span-1 md:col-span-2 lg:col-span-2 lg:row-span-2 bg-white dark:bg-slate-900/60 backdrop-blur-md p-6 rounded-2xl border border-slate-200/80 dark:border-slate-800/80 shadow-sm flex flex-col justify-between min-h-[220px] lg:min-h-[464px]">
           <div>
             <div className="flex justify-between items-center mb-4">
               <span className="text-[10px] font-bold tracking-widest text-slate-400 uppercase font-mono">Fiverr Feed</span>
@@ -342,7 +342,7 @@ export const Dashboard: React.FC<{ onNavigate: (module: string) => void }> = ({ 
         </div>
 
         {/* Card 5: Attendance & Capacity - 2x1 */}
-        <div className="col-span-1 md:col-span-2 bg-white dark:bg-slate-900/60 backdrop-blur-md p-6 rounded-2xl border border-slate-200/80 dark:border-slate-800/80 shadow-sm flex flex-col justify-between min-h-[220px]">
+        <div className="col-span-1 md:col-span-1 lg:col-span-2 bg-white dark:bg-slate-900/60 backdrop-blur-md p-6 rounded-2xl border border-slate-200/80 dark:border-slate-800/80 shadow-sm flex flex-col justify-between min-h-[220px]">
           <div>
             <div className="flex justify-between items-center mb-4">
               <span className="text-[10px] font-bold tracking-widest text-slate-400 uppercase font-mono">Office Presence</span>
@@ -389,47 +389,82 @@ export const Dashboard: React.FC<{ onNavigate: (module: string) => void }> = ({ 
           </div>
         </div>
 
-        {/* Card 6: Project Health - 1x1 */}
-        <div className="col-span-1 bg-white dark:bg-slate-900/60 backdrop-blur-md p-6 rounded-2xl border border-slate-200/80 dark:border-slate-800/80 shadow-sm flex flex-col justify-between min-h-[200px]">
-          <span className="text-[10px] font-bold tracking-widest text-slate-400 uppercase font-mono">Project Health</span>
-          
-          <div className="mt-2 flex flex-col items-center justify-center">
-            <div className="relative w-20 h-20">
-              <svg className="w-full h-full transform -rotate-90">
-                <circle cx="40" cy="40" r="34" stroke="#f3f4f6" strokeWidth="6" fill="none" className="dark:stroke-slate-800"/>
-                <circle 
-                  cx="40" 
-                  cy="40" 
-                  r="34" 
-                  stroke="#2563eb" 
-                  strokeWidth="6" 
-                  fill="none" 
-                  strokeDasharray="213.52" 
-                  strokeDashoffset={213.52 - (213.52 * (runningProjects.length > 0 ? healthyCount / runningProjects.length : 0.8))} 
-                  strokeLinecap="round"
-                />
-              </svg>
-              <div className="absolute inset-0 flex items-center justify-center font-bold text-base text-slate-700 dark:text-slate-200">
-                {runningProjects.length > 0 ? Math.round((healthyCount / runningProjects.length) * 100) : 80}%
+        {/* Card 6: Project Health - 2x1 */}
+        <div className="col-span-1 md:col-span-2 lg:col-span-2 bg-white dark:bg-slate-900/60 backdrop-blur-md p-6 rounded-2xl border border-slate-200/80 dark:border-slate-800/80 shadow-sm flex flex-col justify-between min-h-[200px]">
+          <div>
+            <div className="flex justify-between items-center mb-4">
+              <span className="text-[10px] font-bold tracking-widest text-slate-400 uppercase font-mono">Active Projects & Health</span>
+              <span className="text-xs text-blue-600 dark:text-blue-400 font-semibold font-mono">{runningProjects.length} Active</span>
+            </div>
+
+            <div className="flex flex-col sm:flex-row items-center gap-6">
+              {/* Left Column: Radial Chart */}
+              <div className="flex flex-col items-center shrink-0">
+                <div className="relative w-20 h-20">
+                  <svg className="w-full h-full transform -rotate-90">
+                    <circle cx="40" cy="40" r="34" stroke="#f3f4f6" strokeWidth="6" fill="none" className="dark:stroke-slate-800"/>
+                    <circle 
+                      cx="40" 
+                      cy="40" 
+                      r="34" 
+                      stroke="#2563eb" 
+                      strokeWidth="6" 
+                      fill="none" 
+                      strokeDasharray="213.52" 
+                      strokeDashoffset={213.52 - (213.52 * (runningProjects.length > 0 ? healthyCount / runningProjects.length : 0.8))} 
+                      strokeLinecap="round"
+                    />
+                  </svg>
+                  <div className="absolute inset-0 flex items-center justify-center font-bold text-base text-slate-700 dark:text-slate-200">
+                    {runningProjects.length > 0 ? Math.round((healthyCount / runningProjects.length) * 100) : 80}%
+                  </div>
+                </div>
+                <p className="text-[10px] text-slate-400 mt-2 font-mono uppercase tracking-wider">
+                  {healthyCount} / {runningProjects.length || 1} Healthy
+                </p>
+              </div>
+
+              {/* Right Column: List of Projects */}
+              <div className="flex-1 w-full space-y-2.5">
+                {runningProjects.slice(0, 2).map((proj) => (
+                  <div key={proj.id} className="flex items-center justify-between p-2.5 border border-slate-100 dark:border-slate-800/50 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/40 transition">
+                    <div className="min-w-0 flex-1 pr-2">
+                      <p className="text-xs font-bold text-slate-700 dark:text-slate-200 truncate">{proj.name}</p>
+                      <p className="text-[10px] text-slate-400 font-mono mt-0.5">${proj.budget.toLocaleString()} Budget</p>
+                    </div>
+                    <span className={`text-[9px] font-bold font-mono px-2 py-0.5 rounded-full ${
+                      proj.health === 'Healthy' 
+                        ? 'bg-emerald-100 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400' 
+                        : proj.health === 'At Risk' 
+                        ? 'bg-amber-100 dark:bg-amber-950/30 text-amber-700 dark:text-amber-400' 
+                        : 'bg-rose-100 dark:bg-rose-950/30 text-rose-700 dark:text-rose-400'
+                    }`}>
+                      {proj.health}
+                    </span>
+                  </div>
+                ))}
+
+                {runningProjects.length === 0 && (
+                  <div className="text-center py-4 text-slate-400 text-xs italic">
+                    No active projects found.
+                  </div>
+                )}
               </div>
             </div>
-            <p className="text-xs text-slate-500 mt-2 font-medium">
-              {runningProjects.length > 0 && healthyCount === runningProjects.length ? 'Perfect health' : 'On track'}
-            </p>
           </div>
 
-          <p className="text-[9px] text-slate-400 text-center uppercase tracking-wider font-mono">
-            {healthyCount} of {runningProjects.length || 1} healthy
+          <p className="text-[9px] text-slate-400 mt-4 border-t border-slate-100 dark:border-slate-800/60 pt-2 text-center uppercase tracking-wider font-mono">
+            {runningProjects.length - healthyCount} projects need health screening
           </p>
         </div>
 
-        {/* Card 7: Revenue Chart (col-span-2) */}
-        <div className="col-span-1 md:col-span-2 bg-white dark:bg-slate-900/60 backdrop-blur-md p-6 rounded-2xl border border-slate-200/80 dark:border-slate-800/80 shadow-sm flex flex-col justify-between min-h-[220px]">
+        {/* Card 7: Revenue Chart */}
+        <div className="col-span-1 md:col-span-3 lg:col-span-2 lg:row-span-2 bg-white dark:bg-slate-900/60 backdrop-blur-md p-6 rounded-2xl border border-slate-200/80 dark:border-slate-800/80 shadow-sm flex flex-col justify-between min-h-[240px] lg:min-h-[464px]">
           <div>
             <div className="flex items-center justify-between mb-4">
               <div>
-                <span className="text-[10px] font-bold tracking-widest text-slate-400 uppercase font-mono">Revenue and Cashflow Analytics</span>
-                <p className="text-sm font-bold text-slate-800 dark:text-slate-100 font-display mt-0.5">Financial Trends</p>
+                <span className="text-[10px] font-bold tracking-widest text-slate-400 uppercase font-mono">Revenue Overview</span>
+                <p className="text-sm font-bold text-slate-800 dark:text-slate-100 font-display mt-0.5">Financial & Cashflow Analytics</p>
               </div>
               <div className="flex items-center space-x-3 text-[10px] font-mono">
                 <div className="flex items-center space-x-1">
@@ -444,7 +479,7 @@ export const Dashboard: React.FC<{ onNavigate: (module: string) => void }> = ({ 
             </div>
 
             {/* Pure SVG Line Chart */}
-            <div className="w-full h-32 bg-slate-50/50 dark:bg-slate-950/10 rounded-xl relative overflow-hidden flex items-end">
+            <div className="w-full h-32 md:h-48 lg:h-[280px] bg-slate-50/50 dark:bg-slate-950/10 rounded-xl relative overflow-hidden flex items-end transition-all">
               <svg className="w-full h-full p-2" viewBox="0 0 500 100" preserveAspectRatio="none">
                 {/* Grid lines */}
                 <line x1="0" y1="25" x2="500" y2="25" stroke="currentColor" className="text-slate-100 dark:text-slate-800/30" strokeWidth="0.5" />
@@ -506,7 +541,7 @@ export const Dashboard: React.FC<{ onNavigate: (module: string) => void }> = ({ 
         </div>
 
         {/* Card 9: Today's Daily Standups Feed - 2x1 */}
-        <div className="col-span-1 md:col-span-2 bg-white dark:bg-slate-900/60 backdrop-blur-md p-6 rounded-2xl border border-slate-200/80 dark:border-slate-800/80 shadow-sm flex flex-col justify-between min-h-[200px]">
+        <div className="col-span-1 md:col-span-2 lg:col-span-2 bg-white dark:bg-slate-900/60 backdrop-blur-md p-6 rounded-2xl border border-slate-200/80 dark:border-slate-800/80 shadow-sm flex flex-col justify-between min-h-[200px]">
           <div>
             <div className="flex justify-between items-center mb-4">
               <span className="text-[10px] font-bold tracking-widest text-slate-400 uppercase font-mono">Today's Standups</span>
@@ -552,7 +587,7 @@ export const Dashboard: React.FC<{ onNavigate: (module: string) => void }> = ({ 
         </div>
 
         {/* Card 10: Quick Actions - 1x1 */}
-        <div className="col-span-1 bg-white dark:bg-slate-900/60 backdrop-blur-md p-6 rounded-2xl border border-slate-200/80 dark:border-slate-800/80 shadow-sm flex flex-col justify-between min-h-[200px]">
+        <div className="col-span-1 md:col-span-3 lg:col-span-1 bg-white dark:bg-slate-900/60 backdrop-blur-md p-6 rounded-2xl border border-slate-200/80 dark:border-slate-800/80 shadow-sm flex flex-col justify-between min-h-[200px]">
           <span className="text-[10px] font-bold tracking-widest text-slate-400 uppercase font-mono">Quick Actions</span>
 
           <div className="space-y-1.5">
