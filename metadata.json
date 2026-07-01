@@ -1,0 +1,6 @@
+{
+  "name": "OfficeFlow",
+  "description": "Premium SaaS Office Management System specifically engineered for project-based agencies and Fiverr specialists.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
